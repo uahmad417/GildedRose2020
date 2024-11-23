@@ -134,7 +134,7 @@ public class GildedRoseTest {
 	public void testBackStagePassesQualityIncreasesByOne() {
 		//create an inn, add an item, and simulate one day
 		GildedRose inn = new GildedRose();
-		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
+		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 11, 20));
 		inn.oneDay();
 		//access a list of items, get the quality of the one set
 		List<Item> items = inn.getItems();
@@ -148,21 +148,24 @@ public class GildedRoseTest {
 	public void testBackStagePassesQualityIncreasesByTwo() {
 		//create an inn, add an item, and simulate one day
 		GildedRose inn = new GildedRose();
-		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 8, 20));
+		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 10, 20));
+		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 6, 20));
 		inn.oneDay();
 		//access a list of items, get the quality of the one set
 		List<Item> items = inn.getItems();
-		int quality = items.get(0).getQuality();
+		int quality1 = items.get(0).getQuality();
+		int quality2 = items.get(1).getQuality();
 		
 		//assert quality has decreased by one
-		assertEquals("Failed quality for Dexterity Vest", 22, quality);
+		assertEquals("Failed quality for Dexterity Vest", 22, quality1);
+		assertEquals("Failed quality for Dexterity Vest", 22, quality2);
 	}
 	
 	@Test
 	public void testBackStagePassesQualityIncreasesByThree() {
 		//create an inn, add an item, and simulate one day
 		GildedRose inn = new GildedRose();
-		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 4, 20));
+		inn.setItem(new Item("Backstage passes to a TAFKAL80ETC concert", 5, 20));
 		inn.oneDay();
 		//access a list of items, get the quality of the one set
 		List<Item> items = inn.getItems();
