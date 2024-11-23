@@ -263,6 +263,32 @@ public class GildedRoseTest {
 		assertEquals("Failed quality for Dexterity Vest", 0, quality);
 	}
 	
+	@Test
+	public void testInnHasNoItems() {
+		//create an inn, add an item, and simulate one day
+		GildedRose inn = new GildedRose();
+		inn.oneDay();
+		
+		
+		//assert quality has decreased by one
+		assertEquals("Size of the Inn should be zero", 0, inn.getItems().size());
+	}
 	
-	
+	@Test
+	public void testQualityDecreasesTwoNormalItems() {
+		//create an inn, add an item, and simulate one day
+		GildedRose inn = new GildedRose();
+		inn.setItem(new Item("+5 Dexterity Vest", 10, 20));
+		inn.setItem(new Item("Conjured Mana Cake", 3, 6));
+		inn.oneDay();
+		
+		//access a list of items, get the quality of the one set
+		List<Item> items = inn.getItems();
+		int quality1 = items.get(0).getQuality();
+		int quality2 = items.get(1).getQuality();
+		
+		//assert quality has decreased by one
+		assertEquals("Failed quality for Dexterity Vest", 19, quality1);
+		assertEquals("Failed quality for Dexterity Vest", 5, quality2);
+	}
 }
