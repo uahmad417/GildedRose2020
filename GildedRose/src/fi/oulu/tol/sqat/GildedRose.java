@@ -46,7 +46,7 @@ public class GildedRose {
             {
                 if (items.get(i).getQuality() < 50)
                 {
-                    items.get(i).setQuality(items.get(i).getQuality() + 1);
+                    items.get(i).setQuality(items.get	(i).getQuality() + 1);
 
                     if ("Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName()))
                     {
@@ -93,13 +93,13 @@ public class GildedRose {
                         items.get(i).setQuality(items.get(i).getQuality() - items.get(i).getQuality());
                     }
                 }
-                else
-                {
-                    if (items.get(i).getQuality() < 50)
-                    {
-                        items.get(i).setQuality(items.get(i).getQuality() + 1);
-                    }
-                }
+//                else
+//                {
+//                    if (items.get(i).getQuality() < 50)
+//                    {
+//                        items.get(i).setQuality(items.get(i).getQuality() + 1);
+//                    }
+//                }
             }
         }
     }
